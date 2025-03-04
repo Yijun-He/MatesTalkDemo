@@ -112,7 +112,7 @@ const to_business_info_ch = "Mates Talk的团队由通过了1％以下录取率�
 //The information will be displayed on the board in English
 const beginner_info_en = "You memorized words. You studied hard for listening, reading, and writing. You got high scores on tests. But you can't speak. You can't use it for work. The words you want to convey get stuck in your throat. Why don't you change this reality together? You should be able to do more. With Mates Talk, let's find out what you should be, speak foreign languages with confidence like a native speaker, and build a future of success in business."
 const study_approch_info_en = "Mates Talk provides a learning plan optimized for learners, starting with simple business words and phrases and gradually stepping up. We will take you by the hand in the shortest route and ensure that you grow to the highest level of a native speaker."
-const improvment_info_en = "Mates Talk introduces state-of-the-art data analysis technology, captures your learning performance from multiple perspectives, dynamically adjusts the learning plan, and ensures steady growth. Your success will be numerically proven."
+const improvment_info_en = "Mates Talk introduces advanced data analysis technology, captures your learning performance from multiple perspectives, dynamically adjusts the learning plan, and ensures steady growth. Your success will be numerically proven."
 const to_business_info_en = "Mates Talk thoroughly supports you with a team of business and language education experts who have passed a recruitment rate of less than 1%. Learning with Mates Talk not only improves your language skills, but also provides various information for success in business."
 
 //The object contains the infomation in different langguage that will be displayed on the board
@@ -149,9 +149,9 @@ const switch_current_info = (key) =>{
   current_study_info.value = study_info[current_lang.value][key];
 }
 
-const q_text_ja = "レベルをテスト";
-const q_text_ch = "测试当前水平";
-const q_text_en = "Test your Level";
+const q_text_ja = "レベルをテスト(開発中)";
+const q_text_ch = "测试当前水平(待开发)";
+const q_text_en = "Test your Level（developing)";
 
 const video_text_ja = "サンプル動画を見る";
 const video_text_ch = "观看实例动画";
@@ -161,28 +161,36 @@ const designer_info_ja = "このサイトはHe.Y.JがBizMatesの技術テスト�
 const designer_info_ch = "此网页由He.Y.J在BizMates技术测试后，对自己的技术感到不满，通过学习和试错作成的MatesTalk.Ver.5.0。现在He.Y.J能够使用的编程语言有C#，Python,HTML,CSS,JavaScript,能使用VUE框架和Unity。";
 const designer_info_en = "This website is made by He.Y.J through the study, trial and error after the techenique test of BizMates for felt unsatisfied of selves technique. He.Y.J now knows about C#, Python, HTML, CSS, javaScript, is able to use VUE and Unity.";
 
+const mates_link_ja = "もっと知りたい方はこちらへ";
+const mates_link_ch = "点我获取更多信息"; 
+const mates_link_en = "further information"; 
 
 const current_q_text = ref(q_text_ja);
 const current_video_text = ref(video_text_ja)
 const current_designer_info = ref(designer_info_ja);
 const show_current_designer_info = ref("");
+const current_link_info = ref(mates_link_ja);
 
 const switch_q_and_video_text_lang = () =>{
   if(current_lang.value === lang_set[0]){
     current_q_text.value = q_text_ja;
     current_video_text.value = video_text_ja;
     current_designer_info.value = designer_info_ja;
+    current_link_info.value = mates_link_ja;
   }
   else if(current_lang.value === lang_set[1]){
     current_q_text.value = q_text_ch;
     current_video_text.value = video_text_ch;
     current_designer_info.value = designer_info_ch;
+    current_link_info.value = mates_link_ch;
 
   }
   else if(current_lang.value === lang_set[2]){
     current_q_text.value = q_text_en;
     current_video_text.value = video_text_en;
     current_designer_info.value = designer_info_en;
+    current_link_info.value = mates_link_en;
+    
   }
 }
 
@@ -200,14 +208,14 @@ const hide_designer_info = () =>{
 </script>
 
 <template>
-  <!-- 左侧内容区域 -->
+  <!-- catch phrases show on left page -->
   <div class="catch_phrase_box">
     <h1 class="title">{{ current_title }}</h1>
     <h2 class="catch_phrase">{{ current_catch_phrase1}}</h2>
     <h3 class="catch_phrase2">{{ current_catch_phrase2}}</h3>
   </div>
 
-  <!-- 中间区域：按钮区域和显示详细文本的区域 -->
+  <!--study messages show below on left page-->
   <div class="study_info_box">
     <div class="info_container">
       <div class="info_button" @mouseover="switch_current_info('to_beginner')">
@@ -228,7 +236,7 @@ const hide_designer_info = () =>{
     </div>
   </div>
 
-  <!-- 右侧语言切换按钮 -->
+  <!-- Switch langguage buttons on right page -->
   <div class="langguage_choice">
     <button @click="switch_lang(lang_set[0]); switch_current_titles(lang_set[0]); switch_q_and_video_text_lang()" class="langguage_button">日本語</button>
     <button @click="switch_lang(lang_set[1]); switch_current_titles(lang_set[1]); switch_q_and_video_text_lang()" class="langguage_button">中文</button>
@@ -241,14 +249,43 @@ const hide_designer_info = () =>{
     <img @mouseover = "show_designer_info(current_designer_info)" @mouseleave = "hide_designer_info()" src = "/myChara.png" alt = "designer_info" class = "designer">
   </button>
 <button class = "circle"> {{current_q_text}} </button>
-<button class = "circle_1">{{current_video_text}} </button>
+<div>
+    <a href="/MatesTalkDemo//WatchVideos.html" class="circle_1">
+      {{ current_video_text }}
+    </a>
+</div>
 <div class = "designer_info">{{show_current_designer_info}}</div>
+
+<!-- link buttons on right page -->
+<a href="https://www.bizmates.jp" class="jump_to_bizM">
+  {{current_link_info}}
+  </a>
+
 
 </template>
 
 
 
 <style scoped>
+.jump_to_bizM{
+ 
+  position:absolute;
+  top:65vh;
+  right:120px;
+  border-radius: 30px;
+  width: 500px;
+  height: 80px;
+  background-color: lightblue;
+  text-align: center;
+  line-height: 70px;  /* 让文字垂直居中 */
+  cursor: pointer;
+  color: #454607;
+  text-decoration: none; /* 去掉下划线 */
+  font-size: 2em;
+}
+.jump_to_bizM:hover{
+  background-color: deepskyblue;
+}
 .designer_info{
   position:absolute;
   top:75vh;
@@ -278,7 +315,9 @@ const hide_designer_info = () =>{
   border-radius: 40px;
   display: flex;
   text-align: center;
+  padding-bottom: 30px;
   justify-content: center;
+  text-align: center;
   color:#1f1f69;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 1.3em;
