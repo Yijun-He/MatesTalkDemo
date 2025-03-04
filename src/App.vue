@@ -1,4 +1,17 @@
 <script setup>
+//This script is made for practicing website developing after skill test of bizmates.
+//What's new: 
+// 1). langguage choosing. You can switch langguage of texts displayed in windows or buttons with Japanese, chinese, English.
+// 2). Website link jumping. You can jump to other website for further information which are bizmates homepage and the original langguage study video display page.
+// 3). defferent discribe texts displayed in one window. You can switch texts by stop the cursor in the area of the key words.
+// 4). 2 icons has been added.
+// 5). Online reviewing. You can review the page online by the URL: https://Yijun-He.github.io/MatesTalkDemo/
+//what's need to be improved:
+// 1). elements position. The elements position will be different if you open the website with the displays that the size are different.  
+// 2). Too long codes in one file. There is a concept that named components so study about components, no repeated codes in one file if its not neccesary.
+// 3). Make Langguage packages. Probably I don't need to write down all the texts in the App.vue file, maybe I can create an json file and put all my texts into the file.
+/****************************************************************************************************************************************************************************/
+
 import HelloWorld from './components/HelloWorld.vue'
 import { ref } from 'vue';
 import{reactive} from 'vue';
@@ -57,25 +70,25 @@ const title_catch_phrase = reactive({
 }
 
 
-// buttons named in Japanese
+// Key words in Japanese
 const beginner_button_ja = "初心者の方へ";
 const study_button_ja = "学習へのアプローチ";
 const improvment_button_ja = "成長への道";
 const to_business_button_ja = "ビジネス成功への道";
 
-// buttons named in Chinese
+// Key words in Chinese
 const beginner_button_ch = "我是初学者";
 const study_button_ch = "学习方法";
 const improvment_button_ch = "技巧提升";
 const to_business_button_ch = "商务成功";
 
-// buttons named in English
+// Key words in English
 const beginner_button_en = "Beginners";
 const study_button_en = "Study Methods";
 const improvment_button_en = "Improvement methods";
 const to_business_button_en = "Business";
 
-//the object contains the named of buttons in diffdrent langguage
+//the object contains key words in diffdrent langguage
 const button_info = reactive({
   [lang_set[0]]: {
     to_beginner: beginner_button_ja,
@@ -97,25 +110,25 @@ const button_info = reactive({
   }
 });
 
-//The information will be displayed on the board in Japanese
+//The information will be displayed on the board in Japanese for giving further information of each key words.
 const beginner_info_ja = "単語を覚えた。聴解、読解、一生懸命勉強した。テストでハイスコアを取った。でも、話せない。仕事につかえない。伝えたい言葉が、喉に詰まる。この現実を、一緒に変えてみませんか？あなたなら、もっとできるはずです。Mates Talkと一緒に、あなたのあるべき姿を見つけましょう、自信満ちて外国語を母国語のように話す自分、そしてビジネスで成功する未来を。"
 const study_approch_info_ja = "Mates Talkは、学習者に最適化した学習プランを提供し、ビジネスに絞った簡単な単語やフレーズからはじめ、徐々にステップアップしていきます。最短なルートから確実にあなたの手を引きながら、最高母語話者のレベルまで成長させます。"
 const improvment_info_ja = "Mates Talkは、最先端のデータ分析技術を導入し、あなたの学習パフォーマンスを多角的に捉え、学習プランを動的に調整し、確実に成長へと導きます。あなたの成功は、数的に証明されます。"
 const to_business_info_ja = "Mates Talkでは、採用率1％以下を突破したビジネス＆語学教育の専門家からなるチームであなたへのサポートを徹底しています。Mates Talkでの学習は、語学力を高めるだけでなく、ビジネスで成功する様々な情報を入手できます。"
 
-//The information will be displayed on the board in Chinese
+//The information will be displayed on the board in Chinese for giving further information of each key words.
 const beginner_info_ch = "单词，听力，阅读，作文。努力学习，考试得了高分，却说不出流利的英语，也不能用于工作，想传达给对方，却最终卡在喉咙里。其实，你应该能做得更好。与Mates Talk一起，找到你应该有的样子，像说母语般充满自信地说外语，以及在商务上取得成功的未来。"
 const study_approch_info_ch = "Mates Talk提供了最适合学习者的学习计划，从简单的商务单词和短语开始，逐步提升。我们将以最短的路径，确保您最高达到母语水平。"
 const improvment_info_ch = "Mates Talk引入了最先进的数据分析技术，全方位地捕捉您的学习表现，动态调整学习计划，确保您稳步成长。您的成功将得到数字上的证明。"
 const to_business_info_ch = "Mates Talk的团队由通过了1％以下录取率的商务和语言教育专家组成，并全力支持您的学习。Mates Talk的学习不仅可以提高语言能力，还可以获得在商务上取得成功的各种信息。"
 
-//The information will be displayed on the board in English
+//The information will be displayed on the board in English for giving further information of each key words.
 const beginner_info_en = "You memorized words. You studied hard for listening, reading, and writing. You got high scores on tests. But you can't speak. You can't use it for work. The words you want to convey get stuck in your throat. Why don't you change this reality together? You should be able to do more. With Mates Talk, let's find out what you should be, speak foreign languages with confidence like a native speaker, and build a future of success in business."
 const study_approch_info_en = "Mates Talk provides a learning plan optimized for learners, starting with simple business words and phrases and gradually stepping up. We will take you by the hand in the shortest route and ensure that you grow to the highest level of a native speaker."
 const improvment_info_en = "Mates Talk introduces advanced data analysis technology, captures your learning performance from multiple perspectives, dynamically adjusts the learning plan, and ensures steady growth. Your success will be numerically proven."
 const to_business_info_en = "Mates Talk thoroughly supports you with a team of business and language education experts who have passed a recruitment rate of less than 1%. Learning with Mates Talk not only improves your language skills, but also provides various information for success in business."
 
-//The object contains the infomation in different langguage that will be displayed on the board
+//The object contains the infomation in different langguage that will be displayed on the board for giving further information of each key words.
 const study_info = reactive({
   [lang_set[0]]: {
     to_beginner: beginner_info_ja,
@@ -136,19 +149,23 @@ const study_info = reactive({
     to_business: to_business_info_en,
   }
 });
+
+//The informations that will be displayed for giving further information of each key words.
 const current_study_info = ref(study_info[current_lang.value].to_beginner);
 
+//Switch langguage function
 const switch_lang = (lang) =>{
   current_lang.value = lang;
   console.log(current_lang.value);
   current_study_info.value = study_info[current_lang.value].to_beginner;
   
 }
-
+//Switch the information showed for giving  further infromation of each key words
 const switch_current_info = (key) =>{
   current_study_info.value = study_info[current_lang.value][key];
 }
 
+//Texts of key words or disigner information in different langguage on right side of webpage.
 const q_text_ja = "レベルをテスト(開発中)";
 const q_text_ch = "测试当前水平(待开发)";
 const q_text_en = "Test your Level（developing)";
@@ -165,12 +182,14 @@ const mates_link_ja = "もっと知りたい方はこちらへ";
 const mates_link_ch = "点我获取更多信息"; 
 const mates_link_en = "further information"; 
 
+//Texts of key words or disigner information in different langguage on right side of webpage.
 const current_q_text = ref(q_text_ja);
 const current_video_text = ref(video_text_ja)
 const current_designer_info = ref(designer_info_ja);
 const show_current_designer_info = ref("");
 const current_link_info = ref(mates_link_ja);
 
+//Function of switch the texts on right side
 const switch_q_and_video_text_lang = () =>{
   if(current_lang.value === lang_set[0]){
     current_q_text.value = q_text_ja;
@@ -194,10 +213,12 @@ const switch_q_and_video_text_lang = () =>{
   }
 }
 
+//Show the current langguage of designer information
 const show_designer_info = (current_designer_info) =>{
   show_current_designer_info.value = current_designer_info;
 
 }
+//Hide the current langguage of designer information
 const hide_designer_info = () =>{
   show_current_designer_info.value = " ";
 }
@@ -248,12 +269,16 @@ const hide_designer_info = () =>{
   <button class = "my_chara_botton">
     <img @mouseover = "show_designer_info(current_designer_info)" @mouseleave = "hide_designer_info()" src = "/myChara.png" alt = "designer_info" class = "designer">
   </button>
+<!-- Questionnaire button but still in development -->
 <button class = "circle"> {{current_q_text}} </button>
+
+ <!-- Jump to the page that displayed my videos -->
 <div>
     <a href="/MatesTalkDemo//WatchVideos.html" class="circle_1">
       {{ current_video_text }}
     </a>
 </div>
+<!-- show designer information -->
 <div class = "designer_info">{{show_current_designer_info}}</div>
 
 <!-- link buttons on right page -->
@@ -277,12 +302,14 @@ const hide_designer_info = () =>{
   height: 80px;
   background-color: lightblue;
   text-align: center;
-  line-height: 70px;  /* 让文字垂直居中 */
+  line-height: 70px;  /* set the text on the center */
   cursor: pointer;
   color: #454607;
-  text-decoration: none; /* 去掉下划线 */
+  text-decoration: none; /* no underscore */
   font-size: 2em;
 }
+
+/* change the color while cursor */
 .jump_to_bizM:hover{
   background-color: deepskyblue;
 }
@@ -305,6 +332,7 @@ const hide_designer_info = () =>{
   
 
 }
+/* Questionnaire button style setting */
 .circle{
   position:absolute;
   top:250px;
@@ -324,6 +352,8 @@ const hide_designer_info = () =>{
   background:linear-gradient(to right,rgb(231, 231, 77),rgb(227, 230, 207));
   
 }
+
+/* Video button style setting */
 .circle_1{
   position:absolute;
   top:250px;
@@ -340,6 +370,8 @@ const hide_designer_info = () =>{
   font-size: 1.3em;
   background:linear-gradient(to right,rgb(231, 231, 77),rgb(227, 230, 207));
 }
+
+/* Designer icon style setting*/
 .designer{
   position:fixed;
   top:85vh;
@@ -347,7 +379,7 @@ const hide_designer_info = () =>{
   width:150px;
   height:auto;
 }
-
+/* Model girl icon style setting*/
 .girl{
   position:absolute;
   top:150px;
@@ -356,6 +388,8 @@ const hide_designer_info = () =>{
   height:auto;
   cursor:pointer;
 }
+
+/* Langguage switch button style setting*/
 .langguage_button{
   width: 200px;
   height: 50px;
@@ -371,6 +405,8 @@ const hide_designer_info = () =>{
   cursor:pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+/* The container box of Langguage switch button style setting*/
 .langguage_choice{
   position:absolute;
   top: 0px;
@@ -386,6 +422,7 @@ const hide_designer_info = () =>{
   border-radius: 0 0 20px 0;
  
 }
+/* The texts of further information of each key words on left of page, style setting */
 .show_information p{
   margin: 0;
   padding: 0;
@@ -413,7 +450,7 @@ const hide_designer_info = () =>{
   text-align: left;
 }
 
-/* set the property of information shower */
+/* set the property of information shower(area, or you can call it button) */
 .info_button{
   width: 230px;
   height: 50px;
@@ -432,7 +469,7 @@ const hide_designer_info = () =>{
   
 }
 
-/*set the property  of the info container box */
+/*set the property of the info container box */
 .info_container{
   position:absolute;
   top: 0px;
@@ -464,6 +501,7 @@ const hide_designer_info = () =>{
   background: linear-gradient(90deg, #6f1a72, #646cff);
   border-radius: 0 0 20px 0; /* set the border radius */
 }
+
 .catch_phrase_box{
   position: absolute; /* set the  */
   top: 10px;
@@ -480,6 +518,7 @@ const hide_designer_info = () =>{
   background: linear-gradient(90deg, #6f1a72, #646cff);
  
 }
+
 .title{
   position:absolute;
   top: 5vw;
